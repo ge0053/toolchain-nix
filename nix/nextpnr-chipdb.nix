@@ -97,7 +97,9 @@ stdenv.mkDerivation {
     echo -n $out
     EOF
     chmod 755 $out/bin/get_chipdb_${backend}.sh
-
+    for family in ${lib.concatStringsSep " " builtins.attrNames dies}; do
+    ln -s ${nextpnr}/share/nextpnr/external/prjxray-db/$family/ $out/$family
+    done
     runHook postBuild
   '';
 }
