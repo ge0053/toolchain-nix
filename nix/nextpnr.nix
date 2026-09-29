@@ -19,6 +19,9 @@
 , boost
 , eigen
 , prjxray-db
+, enableGui ? false
+,  wrapQtAppsHook ? null
+,  qtbase ? null
 }:
 
 let
